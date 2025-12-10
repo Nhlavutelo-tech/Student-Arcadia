@@ -84,6 +84,10 @@ body {
     transition: color 0.3s ease;
     padding: 0.5rem 1rem;
     border-radius: var(--border-radius);
+    display: inline-block;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
 }
 
 .nav-menu a:hover,
@@ -480,14 +484,56 @@ body {
 }
 
 /* Responsive Design */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .nav-menu {
+        gap: 1.2rem;
+    }
+
+    .mission-vision {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Navbar */
+    .navbar {
+        padding: 0.8rem 0;
+    }
+
+    .nav-container {
+        flex-wrap: wrap;
         gap: 1rem;
     }
 
+    .logo-container {
+        gap: 10px;
+        flex: 1 1 auto;
+    }
+
+    .logo {
+        height: 45px;
+    }
+
+    .brand-name {
+        font-size: 1.3rem;
+    }
+
+    .nav-menu {
+        gap: 0.8rem;
+        flex: 1 1 100%;
+        justify-content: center;
+        order: 3;
+    }
+
     .nav-menu a {
-        padding: 0.3rem 0.5rem;
-        font-size: 0.9rem;
+        padding: 0.4rem 0.7rem;
+        font-size: 0.85rem;
+    }
+
+    /* Hero Section */
+    .hero {
+        min-height: 350px;
+        padding: 80px 20px;
     }
 
     .hero-content h1 {
@@ -500,40 +546,129 @@ body {
 
     .cta-buttons {
         flex-direction: column;
+        gap: 0.8rem;
     }
 
     .btn {
         width: 100%;
+        padding: 11px 25px;
+        font-size: 0.95rem;
     }
 
+    /* Headings */
     .quick-info h2,
     .services-section h1,
     .about-section h1,
     .contact-section h1 {
         font-size: 1.8rem;
+        margin-bottom: 2rem;
     }
 
-    .hero {
-        min-height: 400px;
-        padding: 100px 20px;
+    /* Cards and Grids */
+    .info-cards,
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .card,
+    .service-card {
+        padding: 1.5rem;
+    }
+
+    .service-icon {
+        font-size: 2.5rem;
+    }
+
+    /* About & Contact */
+    .about-content,
+    .mission,
+    .vision {
+        padding: 1.5rem;
+    }
+
+    .mission-vision {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .contact-info {
+        height: auto;
+    }
+
+    /* Forms */
+    .form-group {
+        margin-bottom: 1.2rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 12px;
+        font-size: 1rem;
+    }
+
+    .contact-intro {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    /* Quick Info Section */
+    .quick-info {
+        padding: 40px 20px;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 1.5rem;
+    }
+
+    .footer p {
+        font-size: 0.95rem;
     }
 }
 
 @media (max-width: 480px) {
+    /* Navbar */
+    .navbar {
+        padding: 0.6rem 0;
+    }
+
+    .nav-container {
+        padding: 0 15px;
+    }
+
     .logo-container {
-        gap: 10px;
+        gap: 8px;
     }
 
     .logo {
-        height: 40px;
+        height: 38px;
     }
 
     .brand-name {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 
     .nav-menu {
         gap: 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    .nav-menu a {
+        padding: 0.35rem 0.5rem;
+        font-size: 0.75rem;
+    }
+
+    /* Hero Section */
+    .hero {
+        min-height: 300px;
+        padding: 60px 15px;
     }
 
     .hero-content h1 {
@@ -541,11 +676,111 @@ body {
     }
 
     .hero-content p {
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
 
+    .cta-buttons {
+        gap: 0.6rem;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    /* Headings */
+    h1 {
+        font-size: 1.6rem !important;
+    }
+
+    h2 {
+        font-size: 1.3rem !important;
+    }
+
+    h3 {
+        font-size: 1.1rem !important;
+    }
+
+    .quick-info h2,
+    .services-section h1,
+    .about-section h1,
+    .contact-section h1 {
+        font-size: 1.5rem;
+    }
+
+    /* Cards */
+    .card,
+    .service-card,
+    .about-content,
+    .mission,
+    .vision,
+    .contact-form-container,
+    .contact-info {
+        padding: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
+    .service-icon {
+        font-size: 2rem;
+    }
+
+    /* Spacing */
     .info-cards,
     .services-grid {
-        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+
+    .quick-info {
+        padding: 30px 15px;
+    }
+
+    .about-section,
+    .services-section,
+    .contact-section {
+        padding: 40px 15px;
+        min-height: auto;
+    }
+
+    /* Forms */
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 10px;
+        font-size: 0.95rem;
+    }
+
+    .contact-intro {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 1.2rem 15px;
+    }
+
+    .footer p {
+        font-size: 0.85rem;
+        margin: 0.4rem 0;
+    }
+
+    /* Contact Info Boxes */
+    .info-box {
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+    }
+
+    .info-box h3 {
+        font-size: 1rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .info-box p,
+    .info-box a {
+        font-size: 0.9rem;
     }
 }
