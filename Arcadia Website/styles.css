@@ -1,0 +1,796 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --light-bg: #ecf0f1;
+    --text-color: #2c3e50;
+    --border-radius: 8px;
+}
+
+html, body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navigation */
+.navbar {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #34495e 100%);
+    padding: 1rem 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    height: 50px;
+    width: auto;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.brand-name {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    display: inline-block;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: var(--secondary-color);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url('images/WhatsApp Image 2025-12-06 at 07.15.27_0b3d568c.jpg') center/cover;
+    color: white;
+    padding: 150px 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 500px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 12px 30px;
+    font-size: 1rem;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: 600;
+}
+
+.btn-primary {
+    background: var(--secondary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+.btn-secondary {
+    background: var(--accent-color);
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+}
+
+/* Quick Info Section */
+.quick-info {
+    padding: 60px 20px;
+    background: var(--light-bg);
+}
+
+.quick-info h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+}
+
+.info-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.card p {
+    color: #666;
+    line-height: 1.8;
+}
+
+/* About Section */
+.about-section {
+    padding: 60px 20px;
+    background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), 
+                url('images/WhatsApp Image 2025-12-06 at 07.15.27_d6fe2a70.jpg') center/cover;
+    min-height: calc(100vh - 80px);
+}
+
+.about-section h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+}
+
+.about-content {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 2rem;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.about-content h2 {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+.about-content p {
+    line-height: 1.8;
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.mission-vision {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.mission, .vision {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid var(--secondary-color);
+}
+
+.mission h2, .vision h2 {
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+.mission p, .vision p {
+    color: #666;
+    line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+    .mission-vision {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Services Section */
+.services-section {
+    padding: 60px 20px;
+    background: linear-gradient(rgba(255, 255, 255, 0.97), rgba(255, 255, 255, 0.97)), 
+                url('images/WhatsApp Image 2025-12-06 at 07.15.26_90616d27.jpg') center/cover;
+    min-height: calc(100vh - 80px);
+}
+
+.services-section h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--primary-color);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.service-card {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+    border-top: 4px solid var(--secondary-color);
+}
+
+.service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.service-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.service-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+}
+
+.service-card p {
+    color: #666;
+    line-height: 1.8;
+}
+
+/* Contact Section */
+.contact-section {
+    padding: 60px 20px;
+    background: linear-gradient(rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.96)), 
+                url('images/WhatsApp Image 2025-12-06 at 07.15.26_90616d27.jpg') center/cover;
+    min-height: calc(100vh - 80px);
+}
+
+.contact-section h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.contact-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+}
+
+.contact-form-container {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form-container h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.form-note {
+    background: rgba(52,152,219,0.06);
+    border-left: 4px solid var(--secondary-color);
+    padding: 10px 12px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    color: #2c3e50;
+    font-size: 0.95rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.2);
+}
+
+.contact-form-container .btn {
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.contact-info {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+}
+
+.contact-info h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.info-box {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.info-box:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.info-box h3 {
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.info-box p,
+.info-box a {
+    color: #666;
+    text-decoration: none;
+    line-height: 1.6;
+}
+
+.info-box a:hover {
+    color: var(--secondary-color);
+}
+
+.info-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.info-box ul li {
+    margin-bottom: 0.5rem;
+}
+
+.info-box ul li a {
+    display: inline-block;
+    padding: 0.3rem 0;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.info-box ul li a:hover {
+    border-bottom: 1px solid var(--secondary-color);
+}
+
+@media (max-width: 768px) {
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Footer */
+.footer {
+    background: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    margin-top: auto;
+}
+
+.footer p {
+    margin: 0.5rem 0;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .nav-menu {
+        gap: 1.2rem;
+    }
+
+    .mission-vision {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Navbar */
+    .navbar {
+        padding: 0.8rem 0;
+    }
+
+    .nav-container {
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+
+    .logo-container {
+        gap: 10px;
+        flex: 1 1 auto;
+    }
+
+    .logo {
+        height: 45px;
+    }
+
+    .brand-name {
+        font-size: 1.3rem;
+    }
+
+    .nav-menu {
+        gap: 0.8rem;
+        flex: 1 1 100%;
+        justify-content: center;
+        order: 3;
+    }
+
+    .nav-menu a {
+        padding: 0.4rem 0.7rem;
+        font-size: 0.85rem;
+    }
+
+    /* Hero Section */
+    .hero {
+        min-height: 350px;
+        padding: 80px 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 11px 25px;
+        font-size: 0.95rem;
+    }
+
+    /* Headings */
+    .quick-info h2,
+    .services-section h1,
+    .about-section h1,
+    .contact-section h1 {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+
+    /* Cards and Grids */
+    .info-cards,
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .card,
+    .service-card {
+        padding: 1.5rem;
+    }
+
+    .service-icon {
+        font-size: 2.5rem;
+    }
+
+    /* About & Contact */
+    .about-content,
+    .mission,
+    .vision {
+        padding: 1.5rem;
+    }
+
+    .mission-vision {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .contact-info {
+        height: auto;
+    }
+
+    /* Forms */
+    .form-group {
+        margin-bottom: 1.2rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 12px;
+        font-size: 1rem;
+    }
+
+    .contact-intro {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    /* Quick Info Section */
+    .quick-info {
+        padding: 40px 20px;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 1.5rem;
+    }
+
+    .footer p {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Navbar */
+    .navbar {
+        padding: 0.6rem 0;
+    }
+
+    .nav-container {
+        padding: 0 15px;
+    }
+
+    .logo-container {
+        gap: 8px;
+    }
+
+    .logo {
+        height: 38px;
+    }
+
+    .brand-name {
+        font-size: 1.1rem;
+    }
+
+    .nav-menu {
+        gap: 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    .nav-menu a {
+        padding: 0.35rem 0.5rem;
+        font-size: 0.75rem;
+    }
+
+    /* Hero Section */
+    .hero {
+        min-height: 300px;
+        padding: 60px 15px;
+    }
+
+    .hero-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero-content p {
+        font-size: 0.95rem;
+    }
+
+    .cta-buttons {
+        gap: 0.6rem;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    /* Headings */
+    h1 {
+        font-size: 1.6rem !important;
+    }
+
+    h2 {
+        font-size: 1.3rem !important;
+    }
+
+    h3 {
+        font-size: 1.1rem !important;
+    }
+
+    .quick-info h2,
+    .services-section h1,
+    .about-section h1,
+    .contact-section h1 {
+        font-size: 1.5rem;
+    }
+
+    /* Cards */
+    .card,
+    .service-card,
+    .about-content,
+    .mission,
+    .vision,
+    .contact-form-container,
+    .contact-info {
+        padding: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
+    .service-icon {
+        font-size: 2rem;
+    }
+
+    /* Spacing */
+    .info-cards,
+    .services-grid {
+        gap: 1.2rem;
+    }
+
+    .quick-info {
+        padding: 30px 15px;
+    }
+
+    .about-section,
+    .services-section,
+    .contact-section {
+        padding: 40px 15px;
+        min-height: auto;
+    }
+
+    /* Forms */
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        padding: 10px;
+        font-size: 0.95rem;
+    }
+
+    .contact-intro {
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 1.2rem 15px;
+    }
+
+    .footer p {
+        font-size: 0.85rem;
+        margin: 0.4rem 0;
+    }
+
+    /* Contact Info Boxes */
+    .info-box {
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+    }
+
+    .info-box h3 {
+        font-size: 1rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .info-box p,
+    .info-box a {
+        font-size: 0.9rem;
+    }
+}
