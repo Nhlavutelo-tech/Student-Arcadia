@@ -366,6 +366,16 @@ body {
     margin-bottom: 1.5rem;
 }
 
+.form-note {
+    background: rgba(52,152,219,0.06);
+    border-left: 4px solid var(--secondary-color);
+    padding: 10px 12px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    color: #2c3e50;
+    font-size: 0.95rem;
+}
+
 .form-group {
     margin-bottom: 1.5rem;
 }
