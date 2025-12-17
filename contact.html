@@ -33,12 +33,7 @@
                 <!-- Contact Form -->
                 <div class="contact-form-container">
                     <h2>Send us a Message</h2>
-                    <form class="contact-form" id="contactForm" action="https://formsubmit.co/stdntarcadia@gmail.com" method="POST">
-                        <!-- Replace the email above with the address you want submissions sent to. The first submission will require you to verify the receiving email via Formsubmit. -->
-                        <input type="hidden" name="_subject" value="New message from Student Arcadia website">
-                        <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_next" value="thank-you.html">
-                        <input type="text" name="_honey" style="display:none">
+                    <form class="contact-form" id="contactForm">
 
                         <div class="form-group">
                             <label for="userType">I am a:</label>
@@ -131,8 +126,12 @@
         <div style="margin-top:8px;text-align:right;"><button id="formStatusClose" style="background:#3498db;color:#fff;border:none;padding:8px 12px;border-radius:6px;cursor:pointer">Close</button></div>
     </div>
 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/index.min.js"></script>
     <script>
     (function(){
+        // Initialize EmailJS
+        emailjs.init('PkiH-Q3TavdG4UAcG');
+
         var form = document.getElementById('contactForm');
         var statusBox = document.getElementById('formStatus');
         var statusTitle = document.getElementById('formStatusTitle');
@@ -161,46 +160,32 @@
                 }
             }
 
-            // Try local backend first (POST /api/contact). If it fails, fall back to Formsubmit (form.action).
             e.preventDefault();
-            showStatus('Submitting...', 'Trying site backend (if available) — otherwise we will fallback to the form provider.');
+            showStatus('Submitting...', 'Your message is being sent. Please wait...');
 
+            // Collect form data
             var fd = new FormData(form);
-            var payload = {};
-            fd.forEach(function(v,k){ payload[k]=v; });
+            var templateParams = {
+                to_email: 'stdntarcadia@gmail.com',
+                user_type: fd.get('userType'),
+                from_name: fd.get('name'),
+                from_email: fd.get('email'),
+                phone: fd.get('phone'),
+                subject: fd.get('subject'),
+                message: fd.get('message')
+            };
 
-            var didRespond = false;
-            var timeout = setTimeout(function(){
-                if (!didRespond){
-                    showStatus('No backend detected', 'No local backend responded. Falling back to the configured form provider (Formsubmit). The form will submit now.');
-                    setTimeout(function(){ form.submit(); }, 800);
-                }
-            }, 3000);
-
-            fetch('http://localhost:3000/api/contact', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            }).then(function(res){
-                didRespond = true; clearTimeout(timeout);
-                if (res.ok) {
-                    // redirect to thank-you page
-                    var next = (form.querySelector('input[name="_next"]')||{}).value || 'thank-you.html';
-                    window.location.href = next;
-                } else {
-                    res.json().then(function(json){
-                        showStatus('Server error', 'Backend returned an error: ' + (json.error || res.statusText) + '. Falling back to Formsubmit...');
-                        setTimeout(function(){ form.submit(); }, 1200);
-                    }).catch(function(){
-                        showStatus('Server error', 'Backend returned status ' + res.status + '. Falling back to Formsubmit...');
-                        setTimeout(function(){ form.submit(); }, 1200);
-                    });
-                }
-            }).catch(function(err){
-                clearTimeout(timeout);
-                showStatus('No backend available', 'Could not reach local backend ('+err.message+'). Falling back to Formsubmit.');
-                setTimeout(function(){ form.submit(); }, 800);
-            });
+            // Send via EmailJS
+            emailjs.send('service_student_arcadia', 'template_student_arcadia', templateParams)
+                .then(function(response){
+                    showStatus('Success!', 'Your message has been sent! Redirecting to confirmation...');
+                    setTimeout(function(){
+                        window.location.href = 'thank-you.html';
+                    }, 1500);
+                })
+                .catch(function(error){
+                    showStatus('Error', 'There was an issue sending your message. Please try again or contact us directly. Error: ' + error.text);
+                });
         });
     })();
     </script>
