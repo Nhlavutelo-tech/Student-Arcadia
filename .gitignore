@@ -1,0 +1,24 @@
+# Environment variables (contains sensitive credentials)
+.env
+
+# Node
+node_modules/
+npm-debug.log
+package-lock.json
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Images folder (optional, remove if you want to version control images)
+# images/

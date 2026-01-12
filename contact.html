@@ -18,6 +18,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="services.html">Services</a></li>
+                <li><a href="properties-for-sale.html">Properties for Sale</a></li>
                 <li><a href="contact.html" class="active">Contact</a></li> 
             </ul>
         </div>
@@ -128,8 +129,15 @@
 
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/index.min.js"></script>
     <script>
-    (function(){
-        // Initialize EmailJS
+    // Wait for EmailJS to load, then initialize
+    function initContactForm(){
+        if (typeof emailjs === 'undefined'){
+            console.log('EmailJS not loaded yet, retrying...');
+            setTimeout(initContactForm, 500);
+            return;
+        }
+
+        console.log('EmailJS loaded successfully');
         emailjs.init('PkiH-Q3TavdG4UAcG');
 
         var form = document.getElementById('contactForm');
@@ -176,18 +184,29 @@
             };
 
             // Send via EmailJS
+            console.log('Sending email with params:', templateParams);
             emailjs.send('service_jtn3wbi', 'template_lwny3ol', templateParams)
                 .then(function(response){
+                    console.log('Email sent successfully!', response);
                     showStatus('Success!', 'Your message has been sent! Redirecting to confirmation...');
                     setTimeout(function(){
-                        window.location.href = 'thank-you.html';
-                    }, 1500);
+                        console.log('Redirecting to thank-you.html');
+                        window.location.href = './thank-you.html';
+                    }, 2000);
                 })
                 .catch(function(error){
-                    showStatus('Error', 'There was an issue sending your message. Please try again or contact us directly. Error: ' + error.text);
+                    console.error('EmailJS Error:', error);
+                    showStatus('Error', 'There was an issue sending your message. Please try again. Error: ' + (error.text || error.message || JSON.stringify(error)));
                 });
         });
-    })();
+    }
+
+    // Start initialization when DOM is ready
+    if (document.readyState === 'loading'){
+        document.addEventListener('DOMContentLoaded', initContactForm);
+    } else {
+        initContactForm();
+    }
     </script>
 
 </body>
