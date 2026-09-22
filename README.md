@@ -1,24 +1,29 @@
-Node backend for Student Arcadia contact form
+# Welcome to your Lovable project
 
-Quick start
+This project was built with [Lovable](https://lovable.dev).
 
-1. Copy `.env.example` to `.env` and fill SMTP values.
-2. Install dependencies and run:
+## Build with Lovable
 
-```bash
-cd server-node
-npm install
-npm start
+Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+
+- **Ship faster**: describe what you want to build and Lovable handles the code.
+- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
+- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+
+## Development
+
+Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+
+```sh
+git clone <this-repository-url>
+cd <repository-name>
+npm i
+npm run dev
 ```
 
-3. Run the static site from the project root (or serve it from the same host) and ensure the front-end form posts to `/api/contact`.
+## Built with
 
-Environment variables
-- `SMTP_HOST`, `SMTP_PORT`, `SMTP_SECURE`, `SMTP_USER`, `SMTP_PASS` — SMTP credentials
-- `TO_EMAIL` — recipient address (defaults to SMTP_USER)
-- `FROM_EMAIL` — from address
-- `PORT` — server port
-
-Notes
-- Use an app password for Gmail (if using Gmail) and enable 'Less secure' settings as necessary.
-- The front-end will attempt to POST to `/api/contact` by fetch; if the backend isn't available the site will fallback to Formsubmit automatically.
+- TanStack Start
+- TypeScript
+- React
+- Tailwind CSS
